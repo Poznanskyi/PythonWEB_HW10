@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "hw10"
+version = "0.1.0"
+description = ""
+authors = ["Poznanskyi <shazampoz@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2"
+pymongo = "^4.3.3"
+utils = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
