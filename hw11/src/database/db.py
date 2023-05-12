@@ -8,13 +8,13 @@ file_config = pathlib.Path(__file__).parent.parent.joinpath('conf/config.ini')
 config = configparser.ConfigParser()
 config.read(file_config)
 
-#username = config.get('DEV', 'USER')
-#password = config.get('DEV', 'PASSWORD')
-#domain = config.get('DEV', 'DOMAIN')
-#port = config.get('DEV', 'PORT')
-#db_name = config.get('DEV', 'DB_NAME')
+username = config.get('DEV', 'USER')
+password = config.get('DEV', 'PASSWORD')
+domain = config.get('DEV', 'DOMAIN')
+port = config.get('DEV', 'PORT')
+db_name = config.get('DEV', 'DB_NAME')
 
-SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://poznanskyi:1029384756@localhost:5432/fastapi"
+SQLALCHEMY_DATABASE_URL = f"postgresql+psycopg2://{username}:{password}@{domain}:{port}/{db_name}"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, echo=True, max_overflow=5)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
